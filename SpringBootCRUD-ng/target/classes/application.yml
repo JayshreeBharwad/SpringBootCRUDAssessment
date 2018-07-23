@@ -1,0 +1,52 @@
+---
+server:
+  port: 8080
+  contextPath: /SpringBootCRUDApp
+---
+spring:
+  profiles: default
+datasource:
+  assessment:
+    url: jdbc:mysql://localhost:3306/user
+    username: root
+    password: root
+    driverClassName: com.mysql.jdbc.Driver
+    defaultSchema: user
+    maxPoolSize: 10
+    hibernate:
+      hbm2ddl.method: create-drop
+      show_sql: true
+      format_sql: true
+      dialect: org.hibernate.dialect.MySQLDialect
+---
+spring:
+  profiles: local
+datasource:
+  assessment:
+    url: jdbc:mysql://localhost:3306/user
+    username: root
+    password: root
+    driverClassName: com.mysql.jdbc.Driver
+    defaultSchema: user
+    maxPoolSize: 20
+    hibernate:
+      hbm2ddl.method: update
+      show_sql: true
+      format_sql: true
+      dialect: org.hibernate.dialect.MySQLDialect
+---
+spring:
+  profiles: prod
+datasource:
+  assessment:
+    url: jdbc:mysql://localhost:3306/user
+    username: root
+    password: root
+    driverClassName: com.mysql.jdbc.Driver
+    defaultSchema: user
+    maxPoolSize: 20
+    hibernate:
+      hbm2ddl.method: update
+      show_sql: true
+      format_sql: true
+      dialect: org.hibernate.dialect.MySQLDialect
